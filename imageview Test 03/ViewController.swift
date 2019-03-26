@@ -11,21 +11,25 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
     var count = 1
+    @IBOutlet weak var myLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         myImageView.image = UIImage(named: "frame1.png")
-        
+        myLabel.text = "1"
     }
     @IBAction func changImage(_ sender: Any) {
         if count == 5 {
             count = 0
         }
         
-        
         count = count + 1
+        
         myImageView.image = UIImage(named: "frame\(count).png")
+        
+        myLabel.text = String(count)
+        
     }
     
 }
