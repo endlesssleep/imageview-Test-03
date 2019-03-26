@@ -10,8 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
-    var count = 1
     @IBOutlet weak var myLabel: UILabel!
+    
+    var count = 1
+    var direction = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +23,18 @@ class ViewController: UIViewController {
         myLabel.text = "1"
     }
     @IBAction func changImage(_ sender: Any) {
-        if count == 5 {
-            count = 0
+        
+        if count == 5{
+            direction = false
+        } else if count == 1 {
+            direction = true
         }
         
-        count = count + 1
+        if direction == true {
+            count += 1
+        } else {
+            count -= 1
+        }
         
         myImageView.image = UIImage(named: "frame\(count).png")
         
